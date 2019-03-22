@@ -5,7 +5,7 @@ Originally inspired by Gillick et al. (2010):
 "Machine Learning of Jazz Grammars"
 http://www.mitpressjournals.org/doi/pdf/10.1162/COMJ_a_00006
 
-UPDATE: See branch "research" for the latest working demo of the project. When executed correctly (download all files, run "$ python pipe.py"), assuming all libraries are installed, it will generate guitar improvisation and play it against the prerecorded accompaniment.
+UPDATE: See branch "research" for the latest working demo of the project. When executed correctly (download all files, run `$ python pipe.py`), assuming all libraries are installed, it will generate guitar improvisation and play it against the prerecorded accompaniment.
 
 Computer jazz improvisation powered by machine learning,
 specifically trigram modeling, K-Means clustering, and chord inference with SVMs.
@@ -43,23 +43,23 @@ Notebook 3, creating and training the SVM needed for (6b): 7. Predictive Chord M
 
 For viewing those notebooks, if you get a 400 error on the nbviewer, refresh the page once or twice. Working on this error.
 
-Check out the subdirectory "./presentationfiles" if you'd like to see some pictures of generated vs. original music.
+Check out the subdirectory `./presentationfiles` if you'd like to see some pictures of generated vs. original music.
 
-I worked mainly in the subdirectory "./oscar/oscar2", so all of my main code is over there (although it's in iPython files, so you'll have to either get iPython or view the ipython files with http://nbviewer.ipython.org/.
+I worked mainly in the subdirectory `./oscar/oscar2`, so all of my main code is over there (although it's in iPython files, so you'll have to either get iPython or view the ipython files with http://nbviewer.ipython.org/.
 
 ----------
 
-If you're new here: Included is a sample MIDI file (Oscar-Peterson-2.mid) for analysis and generation. For a quick demo, go to the subdirectory "./oscar/oscar2" and run things in this order (assuming you have the dependencies):
+If you're new here: Included is a sample MIDI file (Oscar-Peterson-2.mid) for analysis and generation. For a quick demo, go to the subdirectory `./oscar/oscar2` and run things in this order (assuming you have the dependencies):
 
 First, run the script oscar2.py as:
 
-$ python oscar2.py > oscar2chords.txt
-(or $ python oscar2.py > oscar2notes.txt based on stdin)
+`$ python oscar2.py` > `oscar2chords.txt`
+(or `$ python oscar2.py` > `oscar2notes.txt` based on stdin)
 
-This should give you two data files which represent the chords and the notes encoded in the original MIDI file: oscar2chords.txt, and oscar2notes.txt.
+This should give you two data files which represent the chords and the notes encoded in the original MIDI file: `oscar2chords.txt`, and `oscar2notes.txt`.
 
-Next, to generate new notes with the N-Gram model, run iPython notebook <b>6a: The N-Gram Pipeline, Part I</b> which writes out the n-grams to the file oscar2ngrams.txt.
+Next, to generate new notes with the N-Gram model, run iPython notebook <b>6a: The N-Gram Pipeline, Part I</b> which writes out the n-grams to the file `oscar2ngrams.txt`.
 
-Next, to generate the chord classifier (SVM) with chord notes, first run iPython notebook <b>5: Extract Chords</b> to process the raw data in oscar2chords.txt, clean it up, and write it out to oscar2chords_extract.txt. Then run iPython notebook <b>7: Predictive Chord Modeling with Bitwise Note Vectors</b>, which reads in that just-created file, trains an SVM to return those chords based on consonant pentatonic notes (semirandomly generated), and cPickles that SVM to disk.
+Next, to generate the chord classifier (SVM) with chord notes, first run iPython notebook <b>5: Extract Chords</b> to process the raw data in `oscar2chords.txt`, clean it up, and write it out to `oscar2chords_extract.txt`. Then run iPython notebook <b>7: Predictive Chord Modeling with Bitwise Note Vectors</b>, which reads in that just-created file, trains an SVM to return those chords based on consonant pentatonic notes (semirandomly generated), and cPickles that SVM to disk.
 
 Finally, for chord accompaniment and dynamic playback, run notebook <b>6b: The N-Gram Pipeline, Part II</b>.
